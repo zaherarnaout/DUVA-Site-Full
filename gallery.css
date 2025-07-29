@@ -2,17 +2,16 @@
 
 /* === Gallery Section === */
 .gallery-section {
-  margin: 40px 0;
-  padding: 20px 0;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* === Gallery Section - Webflow Structure Specific === */
 .gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* === Thumbnail Image Hover and Active Styling === */
