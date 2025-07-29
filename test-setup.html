@@ -44,8 +44,8 @@
   </div>
 
   <script>
-    // Simple test to check if files are loading
-    document.addEventListener('DOMContentLoaded', function() {
+    // Simple test to check if debug functions loaded
+    document.addEventListener('DOMContentLoaded', function () {
       const results = document.getElementById('results');
 
       if (window.duvaDebug) {
@@ -53,7 +53,7 @@
         setTimeout(() => {
           const testResults = window.duvaDebug.runAllTests();
           console.log('Test results:', testResults);
-        }, 2000);
+        }, 1000);
       } else {
         results.innerHTML = '<p style="color: red;">❌ Debug functions not loaded!</p>';
       }
