@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUVA Site Test - Modular Setup</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/base.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/menu.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/product-configurator.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/pdf-export.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/gallery.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/accessories.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/animations.css">
+    <link rel="stylesheet" href="https://e100d038.duva-pdf.pages.dev/image-loading.css">
+    
+    <!-- JavaScript Files -->
+    <script src="https://e100d038.duva-pdf.pages.dev/main.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/product-configurator.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/pdf-export.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/menu.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/image-loading.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/gallery.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/animations.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/accessories.js"></script>
+    <script src="https://e100d038.duva-pdf.pages.dev/debug.js"></script>
+</head>
+<body>
+    <div style="padding: 20px; font-family: Arial, sans-serif;">
+        <h1>DUVA Site Test - Modular Setup</h1>
+        <p>This page tests if all modular files are loading correctly.</p>
+        
+        <div id="test-results" style="margin-top: 20px;">
+            <h2>Test Results:</h2>
+            <div id="results"></div>
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <h2>Manual Tests:</h2>
+            <p>Open browser console and run:</p>
+            <code>window.duvaDebug.runAllTests()</code>
+        </div>
+    </div>
+    
+    <script>
+        // Simple test to check if files are loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = document.getElementById('results');
+            
+            // Check if debug functions are available
+            if (window.duvaDebug) {
+                results.innerHTML = '<p style="color: green;">✅ Debug functions loaded successfully!</p>';
+                
+                // Run tests after a short delay
+                setTimeout(() => {
+                    const testResults = window.duvaDebug.runAllTests();
+                    console.log('Test results:', testResults);
+                }, 2000);
+            } else {
+                results.innerHTML = '<p style="color: red;">❌ Debug functions not loaded!</p>';
+            }
+        });
+    </script>
+</body>
+</html>
