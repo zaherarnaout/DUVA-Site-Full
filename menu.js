@@ -145,6 +145,26 @@ function initializeMenuPanel() {
       menuPanel.classList.add('active');
       console.log('📋 Menu panel active class added');
       
+      // Force menu links to restart animation
+      const menuLinks = menuPanel.querySelectorAll('.link-13');
+      menuLinks.forEach((link, index) => {
+        // Reset animation by removing and re-adding the element
+        const parent = link.parentNode;
+        const nextSibling = link.nextSibling;
+        parent.removeChild(link);
+        parent.insertBefore(link, nextSibling);
+        
+        // Force opacity and transform reset
+        link.style.opacity = '0';
+        link.style.transform = 'translateX(-20px)';
+        
+        // Trigger animation after a small delay
+        setTimeout(() => {
+          link.style.opacity = '1';
+          link.style.transform = 'translateX(0)';
+        }, 100 + (index * 50)); // Stagger the animations
+      });
+      
       // Check close button visibility
       const closeBtn = menuPanel.querySelector('.menu-close');
       if (closeBtn) {
