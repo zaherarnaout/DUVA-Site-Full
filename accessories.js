@@ -32,7 +32,7 @@ document.querySelectorAll('.accessory-checkbox').forEach(box => {
 }); 
 
 // === Accessories Toggle Functionality ===
-document.addEventListener("DOMContentLoaded", function () { 
+function initializeAccessoriesToggle() {
   const toggle = document.querySelector(".accessories-toggle"); 
   const wrapper = document.querySelector(".accessories-wrapper"); 
   const arrow = document.querySelector(".accessories-arrow"); 
@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
       } 
     }); 
   } 
-}); 
+}
 
 // === Inject Accessories Divider (Max Width 2000px) === 
-document.addEventListener('DOMContentLoaded', function () { 
+function injectAccessoriesDivider() {
   const accessoriesSection = document.querySelector(".accessories-section"); 
   if (accessoriesSection) { 
     const wrapper = document.createElement("div"); 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     wrapper.appendChild(divider); 
     accessoriesSection.after(wrapper); 
   } 
-}); 
+}
 
 // === Accessory Injection for PDF ===
 function injectSelectedAccessories() {
