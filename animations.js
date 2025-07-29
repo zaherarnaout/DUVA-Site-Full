@@ -121,20 +121,19 @@ function initializeArrowHoverEffects() {
 }
 
 // Initialize animations when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  initializeScrollAnimations();
-  initializeArrowHoverEffects();
+// document.addEventListener('DOMContentLoaded', function() {
+//   initializeScrollAnimations();
+//   initializeArrowHoverEffects();
   
-  // Add smooth scroll button if needed (optional)
-  const scrollToRelatedBtn = document.querySelector('.scroll-to-related');
-  if (scrollToRelatedBtn) {
-    scrollToRelatedBtn.addEventListener('click', scrollToRelatedSection);
-  }
-});
+//   // Add smooth scroll button if needed (optional)
+//   const scrollToRelatedBtn = document.querySelector('.scroll-to-related');
+//   if (scrollToRelatedBtn) {
+//     scrollToRelatedBtn.addEventListener('click', scrollToRelatedSection);
+//   }
+// });
 
 // Export functions for use in other modules
 window.animationsModule = {
   initializeScrollAnimations,
-  scrollToRelatedSection,
-  initializeArrowHoverEffects
+  scrollToRelatedSection
 }; 
