@@ -421,3 +421,50 @@ body.menu-open {
     max-width: none;
   }
 }
+
+/* Override Webflow CSS that hides menu elements */
+.menu-panel.active .menu-close-wrapper {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  z-index: 1001 !important;
+  overflow: visible !important;
+}
+
+/* Override Webflow mobile styles */
+@media screen and (max-width: 767px) {
+  .menu-panel.active .menu-close-wrapper {
+    display: block !important;
+    margin-top: 21px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .menu-panel.active .menu-close-wrapper {
+    position: absolute !important;
+    z-index: 1010 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+}
+
+/* Override any Webflow hidden states for menu panel content */
+.menu-panel.active * {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Specific overrides for menu links */
+.menu-panel.active .link-13,
+.menu-panel.active a[href],
+.menu-panel.active .menu-close-wrapper a,
+.menu-panel.active .menu-close-wrapper * {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  z-index: auto !important;
+  overflow: visible !important;
+}
