@@ -144,6 +144,27 @@ function initializeMenuPanel() {
     menuPanel.classList.add('active');
     console.log('📋 Menu panel active class added');
     
+    // Debug menu links
+    const menuLinks = menuPanel.querySelectorAll('.link-13, a[href]');
+    console.log('📋 Found menu links:', menuLinks.length);
+    menuLinks.forEach((link, index) => {
+      console.log(`📋 Link ${index + 1}:`, {
+        element: link,
+        text: link.textContent,
+        href: link.href,
+        display: link.style.display,
+        visibility: link.style.visibility,
+        opacity: link.style.opacity,
+        classes: link.className
+      });
+      
+      // Force visibility
+      link.style.display = 'block';
+      link.style.visibility = 'visible';
+      link.style.opacity = '1';
+      link.style.transform = 'translateX(0)';
+    });
+    
     // Check close button visibility
     const closeBtn = menuPanel.querySelector('.menu-close');
     if (closeBtn) {
