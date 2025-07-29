@@ -172,14 +172,56 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(runAllTests, 1000); // Wait 1 second for everything to load
 });
 
-// Export functions for manual testing
+// === Expose Debug Runner ===
 window.duvaDebug = {
+  runAllTests: function () {
+    console.log('🚀 Running all diagnostic tests...');
+    console.log('='.repeat(50));
+    
+    const results = {
+      functions: testCriticalFunctions(),
+      styles: testCriticalStyles(),
+      elements: testCriticalElements(),
+      modules: testModuleLoading(),
+      css: testCSSLoading()
+    };
+    
+    console.log('='.repeat(50));
+    console.log('📊 Summary:');
+    
+    Object.entries(results).forEach(([testType, testResults]) => {
+      const passed = Object.values(testResults).filter(Boolean).length;
+      const total = Object.keys(testResults).length;
+      console.log(`${testType}: ${passed}/${total} passed`);
+    });
+
+    // Update results element if it exists
+    const resultsEl = document.getElementById('results');
+    if (resultsEl) {
+      resultsEl.innerHTML = `
+        <p style="color: green;">✅ Debug functions loaded successfully!</p>
+        <h3>Function Check:</h3>
+        <pre>${JSON.stringify(results.functions, null, 2)}</pre>
+        <h3>Style Check:</h3>
+        <pre>${JSON.stringify(results.styles, null, 2)}</pre>
+        <h3>Element Check:</h3>
+        <pre>${JSON.stringify(results.elements, null, 2)}</pre>
+        <h3>Module Check:</h3>
+        <pre>${JSON.stringify(results.modules, null, 2)}</pre>
+        <h3>CSS Check:</h3>
+        <pre>${JSON.stringify(results.css, null, 2)}</pre>
+      `;
+    }
+
+    return results;
+  },
+  
+  // Also expose individual test functions
   testCriticalFunctions,
   testCriticalStyles,
   testCriticalElements,
   testModuleLoading,
-  testCSSLoading,
-  runAllTests
+  testCSSLoading
 };
 
 console.log('✅ DUVA debug.js ready - use window.duvaDebug.runAllTests() to test');
