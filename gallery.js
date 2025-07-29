@@ -289,13 +289,8 @@ function initializeGalleryAutoScroll() {
   console.log('💡 Auto-scroll starts after 2 seconds, mouse wheel always available');
 }
 
-// Initialize gallery auto-scroll when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  initializeGalleryAutoScroll();
-});
-
 // === Related Items Mouse Wheel Scroll Logic ===
-document.addEventListener("DOMContentLoaded", function () {
+function initializeRelatedItemsScroll() {
   const scrollContainer = document.querySelector(".collection-list-6");
 
   if (scrollContainer) {
@@ -354,9 +349,10 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     console.log('⚠️ Related items scroll container not found');
   }
-});
+}
 
 // Export functions for use in other modules
 window.galleryModule = {
-  initializeGalleryAutoScroll
+  initializeGalleryAutoScroll,
+  initializeRelatedItemsScroll
 }; 
