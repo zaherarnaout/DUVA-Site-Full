@@ -131,7 +131,7 @@ function initializeMenuPanel() {
       }, 10);
     }
     
-    // Show menu panel
+    // Show menu panel - simplified approach like original
     menuPanel.style.display = 'flex';
     menuPanel.style.visibility = 'visible';
     menuPanel.style.opacity = '1';
@@ -140,42 +140,20 @@ function initializeMenuPanel() {
     console.log('📋 Menu panel visibility:', menuPanel.style.visibility);
     console.log('📋 Menu panel opacity:', menuPanel.style.opacity);
     
-    // Trigger animation after display change
-    setTimeout(() => {
-      menuPanel.classList.add('active');
-      console.log('📋 Menu panel active class added');
-      
-      // Force menu links to restart animation
-      const menuLinks = menuPanel.querySelectorAll('.link-13');
-      menuLinks.forEach((link, index) => {
-        // Reset animation by removing and re-adding the element
-        const parent = link.parentNode;
-        const nextSibling = link.nextSibling;
-        parent.removeChild(link);
-        parent.insertBefore(link, nextSibling);
-        
-        // Force opacity and transform reset
-        link.style.opacity = '0';
-        link.style.transform = 'translateX(-20px)';
-        
-        // Trigger animation after a small delay
-        setTimeout(() => {
-          link.style.opacity = '1';
-          link.style.transform = 'translateX(0)';
-        }, 100 + (index * 50)); // Stagger the animations
-      });
-      
-      // Check close button visibility
-      const closeBtn = menuPanel.querySelector('.menu-close');
-      if (closeBtn) {
-        console.log('📋 Close button found in active menu:', closeBtn);
-        console.log('📋 Close button display:', closeBtn.style.display);
-        console.log('📋 Close button visibility:', closeBtn.style.visibility);
-        console.log('📋 Close button opacity:', closeBtn.style.opacity);
-      } else {
-        console.log('⚠️ Close button not found in active menu');
-      }
-    }, 50);
+    // Add active class immediately (like original)
+    menuPanel.classList.add('active');
+    console.log('📋 Menu panel active class added');
+    
+    // Check close button visibility
+    const closeBtn = menuPanel.querySelector('.menu-close');
+    if (closeBtn) {
+      console.log('📋 Close button found in active menu:', closeBtn);
+      console.log('📋 Close button display:', closeBtn.style.display);
+      console.log('📋 Close button visibility:', closeBtn.style.visibility);
+      console.log('📋 Close button opacity:', closeBtn.style.opacity);
+    } else {
+      console.log('⚠️ Close button not found in active menu');
+    }
     
     // Update ARIA state
     menuWrapper.setAttribute('aria-expanded', 'true');
