@@ -223,6 +223,31 @@ body.menu-open {
   display: block !important;
 }
 
+/* Additional aggressive overrides for Webflow */
+.menu-panel.active a.link-13,
+.menu-panel.active .link-13,
+.menu-panel.active [class*="link-13"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  transform: translateX(0) !important;
+  position: static !important;
+  z-index: auto !important;
+  pointer-events: auto !important;
+}
+
+/* Override any Webflow hidden states */
+.menu-panel.active * {
+  visibility: visible !important;
+}
+
+.menu-panel.active .link-13,
+.menu-panel.active a[href] {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* Remove animation delays for now */
 /* .link-13:nth-child(1) { animation-delay: 0.1s; }
 .link-13:nth-child(2) { animation-delay: 0.15s; }
