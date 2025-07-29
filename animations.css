@@ -401,33 +401,42 @@
   opacity: 1 !important;
   transform: translateY(0) !important;
   transition: opacity 0.8s ease, transform 0.8s ease !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
 .product-page-section.fade-in {
   opacity: 1 !important;
   transform: translateY(0) !important;
+  visibility: visible !important;
 }
 
 /* === Product Visuals Fade-in Animation === */
 .product-visuals {
-  opacity: 0 !important;
-  transform: translateY(30px) !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition: opacity 0.8s ease, transform 0.8s ease !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
 .product-visuals.fade-in {
   opacity: 1 !important;
   transform: translateY(0) !important;
+  visibility: visible !important;
 }
 
 /* === Product Info Block Fade-in Animation === */
 .product-info-block {
-  opacity: 0 !important;
-  transform: translateY(30px) !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
   transition: opacity 0.8s ease, transform 0.8s ease !important;
+  visibility: visible !important;
+  display: block !important;
 }
 
 .product-info-block.fade-in {
   opacity: 1 !important;
   transform: translateY(0) !important;
+  visibility: visible !important;
 }
