@@ -78,20 +78,21 @@
 
 /* === Accessories Section Visibility === */
 .accessories-section {
-  transition: all 0.3s ease;
-  overflow: hidden;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .accessories-section.hidden {
-  max-height: 0;
-  opacity: 0;
-  margin: 0;
-  padding: 0;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .accessories-section.visible {
-  max-height: 1000px;
-  opacity: 1;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /* === Accessories Grid Layout === */
