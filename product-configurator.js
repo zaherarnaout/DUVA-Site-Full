@@ -606,11 +606,6 @@ function updateGeneratedCodeInjection() {
   }
 }
 
-// Initialize observer when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-  setupOrderingCodeObserver();
-});
-
 // Export functions for use in other modules
 window.productConfiguratorModule = {
   getCurrentProductCode,
