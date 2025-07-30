@@ -212,11 +212,6 @@ function initializeMenuPanel() {
   }
 }
 
-// Initialize menu panel functionality
-document.addEventListener('DOMContentLoaded', function() {
-  initializeMenuPanel();
-});
-
 // Export functions for use in other modules
 window.menuModule = {
   initializeMenuPanel
