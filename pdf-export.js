@@ -376,14 +376,20 @@ document.addEventListener("DOMContentLoaded", function () {
 // === Download Panel Functions ===
 function showDownloadPanel() {
   const downloadPanel = document.querySelector('.download-panel');
+  console.log('🔍 Looking for download panel:', downloadPanel);
   if (downloadPanel) {
+    console.log('✅ Download panel found, showing it...');
     downloadPanel.style.display = 'flex';
     setTimeout(() => {
       downloadPanel.classList.add('fade-in');
+      console.log('✅ Download panel fade-in class added');
     }, 10);
     console.log('📋 Download panel shown');
   } else {
     console.warn('⚠️ Download panel not found, generating PDF directly');
+    // Check if any elements with 'download' in class name exist
+    const downloadElements = document.querySelectorAll('[class*="download"]');
+    console.log('🔍 Elements with "download" in class:', downloadElements);
     generatePDF(); // Fallback to direct PDF generation
   }
 }
