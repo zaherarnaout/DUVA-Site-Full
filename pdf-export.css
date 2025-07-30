@@ -258,22 +258,39 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transform: translateY(30px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .download-panel.fade-in {
   display: flex;
   opacity: 1;
+  transform: translateY(0);
 }
 
 .download-panel-content {
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  padding: 20px 10px;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: var(--border-divider-light);
+  border-right-color: var(--border-divider-light);
+  border-bottom-color: var(--border-divider-light);
+  border-left-color: var(--border-divider-light);
+  border-top-left-radius: var(--border-4px-cornner);
+  border-top-right-radius: var(--border-4px-cornner);
+  border-bottom-left-radius: var(--border-4px-cornner);
+  border-bottom-right-radius: var(--border-4px-cornner);
+  background-color: var(--duva-white);
+  box-shadow: 0 2px 5px 0 var(--duva-border-shadow);
   max-width: 500px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .download-checkbox {
@@ -357,17 +374,7 @@
   color: #333;
 }
 
-/* === Download Panel Fade-in Animation === */
-.download-panel {
-  opacity: 0 !important;
-  transform: translateY(30px) !important;
-  transition: opacity 0.8s ease, transform 0.8s ease !important;
-}
 
-.download-panel.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
 
 /* === RAL Input Styling - No Blue Border === */
 #ral-input {
