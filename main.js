@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('✅ Accessories divider injected');
     }
     
+    // Initialize download panel
+    if (typeof initializeDownloadPanel === 'function') {
+      initializeDownloadPanel();
+      console.log('✅ Download panel initialized');
+    }
+    
     // Initialize image loading
     if (typeof handleDynamicImages === 'function') {
       handleDynamicImages();
