@@ -366,12 +366,76 @@ document.addEventListener("DOMContentLoaded", function () {
   const downloadBtn = document.querySelector(".download-arrow");
   if (downloadBtn) {
     downloadBtn.addEventListener("click", function () {
-      generatePDF(); // Make sure this function exists
+      showDownloadPanel(); // Show download panel instead of direct PDF generation
     });
   } else {
     console.warn("Download arrow button not found!");
   }
 });
+
+// === Download Panel Functions ===
+function showDownloadPanel() {
+  const downloadPanel = document.querySelector('.download-panel');
+  if (downloadPanel) {
+    downloadPanel.style.display = 'flex';
+    setTimeout(() => {
+      downloadPanel.classList.add('fade-in');
+    }, 10);
+    console.log('📋 Download panel shown');
+  } else {
+    console.warn('⚠️ Download panel not found, generating PDF directly');
+    generatePDF(); // Fallback to direct PDF generation
+  }
+}
+
+function hideDownloadPanel() {
+  const downloadPanel = document.querySelector('.download-panel');
+  if (downloadPanel) {
+    downloadPanel.classList.remove('fade-in');
+    setTimeout(() => {
+      downloadPanel.style.display = 'none';
+    }, 300);
+    console.log('📋 Download panel hidden');
+  }
+}
+
+// === Download Panel Event Listeners ===
+function initializeDownloadPanel() {
+  // Close button
+  const closeBtn = document.querySelector('.download-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', hideDownloadPanel);
+  }
+  
+  // Download button
+  const downloadBtn = document.querySelector('.download-button');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', function() {
+      hideDownloadPanel();
+      generatePDF();
+    });
+  }
+  
+  // Close on outside click
+  const downloadPanel = document.querySelector('.download-panel');
+  if (downloadPanel) {
+    downloadPanel.addEventListener('click', function(e) {
+      if (e.target === downloadPanel) {
+        hideDownloadPanel();
+      }
+    });
+  }
+  
+  // Close on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const downloadPanel = document.querySelector('.download-panel');
+      if (downloadPanel && downloadPanel.style.display === 'flex') {
+        hideDownloadPanel();
+      }
+    }
+  });
+}
 
 // === Update PDF Images Function ===
 function updatePdfImages() {
@@ -408,6 +472,9 @@ window.pdfExportModule = {
   generatePDF,
   showPDFContainer,
   hidePDFContainer,
+  showDownloadPanel,
+  hideDownloadPanel,
+  initializeDownloadPanel,
   injectPdfContent,
   injectPdfIcons,
   injectPdfImages,
