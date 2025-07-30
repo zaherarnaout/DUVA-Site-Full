@@ -366,20 +366,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const downloadBtn = document.querySelector(".download-arrow");
   if (downloadBtn) {
     downloadBtn.addEventListener("click", function () {
-      showDownloadPanel(); // Show download panel instead of direct PDF generation
+      showDownloadPanel(); // Show download panel since it exists in HTML
     });
   } else {
     console.warn("Download arrow button not found!");
   }
-  
-  // Initialize download panel event listeners
-  initializeDownloadPanel();
 });
 
 // === Download Panel Functions ===
 function showDownloadPanel() {
   const downloadPanel = document.querySelector('.download-panel');
-  console.log('🔍 Looking for download panel:', downloadPanel);
   if (downloadPanel) {
     downloadPanel.style.display = 'flex';
     setTimeout(() => {
@@ -388,9 +384,6 @@ function showDownloadPanel() {
     console.log('📋 Download panel shown');
   } else {
     console.warn('⚠️ Download panel not found, generating PDF directly');
-    // Check if any elements with 'download' in class name exist
-    const downloadElements = document.querySelectorAll('[class*="download"]');
-    console.log('🔍 Elements with "download" in class:', downloadElements);
     generatePDF(); // Fallback to direct PDF generation
   }
 }
@@ -408,15 +401,10 @@ function hideDownloadPanel() {
 
 // === Download Panel Event Listeners ===
 function initializeDownloadPanel() {
-  console.log('🔧 Initializing download panel...');
-  
   // Close button
   const closeBtn = document.querySelector('.download-close');
   if (closeBtn) {
     closeBtn.addEventListener('click', hideDownloadPanel);
-    console.log('✅ Close button found and bound');
-  } else {
-    console.warn('⚠️ Close button not found');
   }
   
   // Download button
@@ -426,9 +414,6 @@ function initializeDownloadPanel() {
       hideDownloadPanel();
       generatePDF();
     });
-    console.log('✅ Download button found and bound');
-  } else {
-    console.warn('⚠️ Download button not found');
   }
   
   // Close on outside click
@@ -439,9 +424,6 @@ function initializeDownloadPanel() {
         hideDownloadPanel();
       }
     });
-    console.log('✅ Download panel found and bound');
-  } else {
-    console.warn('⚠️ Download panel not found during initialization');
   }
   
   // Close on escape key
@@ -453,8 +435,6 @@ function initializeDownloadPanel() {
       }
     }
   });
-  
-  console.log('🔧 Download panel initialization complete');
 }
 
 // === Update PDF Images Function ===
