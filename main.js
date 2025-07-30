@@ -32,10 +32,28 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('✅ Gallery auto-scroll initialized');
     }
     
+    // Initialize related items scroll
+    if (typeof initializeRelatedItemsScroll === 'function') {
+      initializeRelatedItemsScroll();
+      console.log('✅ Related items scroll initialized');
+    }
+    
     // Initialize accessories functionality
     if (typeof setupOrderingCodeObserver === 'function') {
       setupOrderingCodeObserver();
       console.log('✅ Ordering code observer initialized');
+    }
+    
+    // Initialize accessories toggle
+    if (typeof initializeAccessoriesToggle === 'function') {
+      initializeAccessoriesToggle();
+      console.log('✅ Accessories toggle initialized');
+    }
+    
+    // Inject accessories divider
+    if (typeof injectAccessoriesDivider === 'function') {
+      injectAccessoriesDivider();
+      console.log('✅ Accessories divider injected');
     }
     
     // Initialize image loading
